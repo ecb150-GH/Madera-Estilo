@@ -1,0 +1,451 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+/* Base Styles */
+:root {
+    --primary-color: #A0522D; /* Sienna - earthy tone for furniture */
+    --secondary-color: #D2B48C; /* Tan - complementary light tone */
+    --text-color: #333;
+    --light-text-color: #f4f4f4;
+    --background-light: #f9f9f9;
+    --background-dark: #2c3e50;
+    --spacing-unit: 1.5rem; /* 24px */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-light);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-unit);
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Removes extra space below image */
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.btn:hover {
+    background-color: #8B4513; /* Darker sienna */
+}
+
+.btn-small {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.btn-small:hover {
+    background-color: #C19A6B; /* Darker tan */
+}
+
+/* Header */
+.main-header {
+    background-color: var(--background-dark);
+    color: var(--light-text-color);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--light-text-color);
+    letter-spacing: 1px;
+}
+
+.main-nav .nav-list {
+    display: flex;
+    gap: var(--spacing-unit);
+}
+
+.main-nav .nav-list a {
+    color: var(--light-text-color);
+    font-weight: 400;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.main-nav .nav-list a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.main-nav .nav-list a:hover::after {
+    width: 100%;
+}
+
+.main-nav .nav-list a:hover {
+    color: var(--primary-color);
+}
+
+/* Navigation Toggle (for mobile) */
+.nav-toggle {
+    display: none; /* Hidden by default on desktop */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    position: relative;
+    z-index: 1001; /* Ensure it's above the nav list when open */
+}
+
+.nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--light-text-color);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1500x800/A0522D/D2B48C?text=Muebles+de+Calidad') no-repeat center center/cover;
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 6rem 0;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-section p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Sections General */
+section {
+    padding: 4rem 0;
+    background-color: var(--background-light);
+}
+
+section:nth-of-type(even) {
+    background-color: #f0f0f0; /* Slightly different background for alternating sections */
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Products Section */
+.products-section .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-unit);
+}
+
+.product-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: var(--spacing-unit);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.product-item img {
+    width: 100%;
+    height: 200px; /* Fixed height for consistent cards */
+    object-fit: cover; /* Ensures images cover the area without distortion */
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.product-item h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.product-item p {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 1rem;
+    height: 45px; /* Fixed height to prevent layout shifts */
+    overflow: hidden;
+}
+
+.product-item .price {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+/* Gallery Section */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-unit);
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.03);
+}
+
+/* Footer */
+.main-footer {
+    background-color: var(--background-dark);
+    color: var(--light-text-color);
+    padding: 3rem 0;
+    font-size: 0.9em;
+}
+
+.main-footer .footer-content {
+    display: flex;
+    flex-wrap: wrap; /* Allows sections to wrap on smaller screens */
+    justify-content: space-between;
+    gap: var(--spacing-unit) 2rem;
+    margin-bottom: 2rem;
+}
+
+.main-footer .footer-section {
+    flex: 1;
+    min-width: 250px; /* Minimum width for each section */
+}
+
+.main-footer .footer-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.main-footer .footer-section p,
+.main-footer .footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.main-footer .footer-section ul li a {
+    color: var(--light-text-color);
+    transition: color 0.3s ease;
+}
+
+.main-footer .footer-section ul li a:hover {
+    color: var(--primary-color);
+}
+
+.main-footer .footer-section .contact-info i {
+    margin-right: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.main-footer .footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-header .container {
+        flex-wrap: wrap;
+    }
+
+    .main-header .logo {
+        flex-basis: 100%; /* Logo takes full width on small screens */
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .main-nav {
+        width: 100%;
+        position: relative;
+    }
+
+    .nav-toggle {
+        display: block; /* Show the toggle button */
+        position: absolute;
+        right: var(--spacing-unit);
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .main-nav .nav-list {
+        flex-direction: column;
+        background-color: var(--background-dark);
+        position: absolute;
+        top: 100%; /* Below the header */
+        left: 0;
+        width: 100%;
+        transform: translateY(-100%); /* Hide it initially */
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        padding-bottom: 1rem; /* Add some padding at the bottom */
+    }
+
+    .main-nav .nav-list.active {
+        transform: translateY(0); /* Show when active */
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .main-nav .nav-list li {
+        text-align: center;
+        margin: 0.5rem 0;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1.1rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .product-item {
+        padding: 1.5rem;
+    }
+
+    .main-footer .footer-content {
+        flex-direction: column; /* Stack footer sections vertically */
+        align-items: center;
+        text-align: center;
+    }
+    
+    .main-footer .footer-section {
+        margin-bottom: 1.5rem; /* Add space between stacked sections */
+    }
+
+    .main-footer .footer-section:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 4rem 0;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .product-item img {
+        height: 180px;
+    }
+}
